@@ -1,0 +1,31 @@
+.App {
+    font-family: sans-serif;
+    text-align: center;
+  }
+  
+  .toolbar-wrapper {
+    position: absolute;
+    top: 24px;
+    left: 24px;
+    background-color: #fff;
+    border-radius: 5px;
+    overflow: hidden;
+  }
+  
+  .tool-wrapper {
+    display: flex;
+    align-items: center;
+    cursor: pointer;
+  }
+  
+  .tool-wrapper:hover,
+  .tool-wrapper.active {
+    background-color: #eee;
+  }
+  
+  .tool-wrapper svg {
+    padding: 5px 8px;
+    width: 20px;
+    color: #777;
+  }
+  
