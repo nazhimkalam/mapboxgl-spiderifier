@@ -143,6 +143,7 @@ export default function App() {
       var min_difference_lng = 999;
       var closest_marker_coordinates = [];
 
+      // This code section is used to get the closest coordinates from the markers list from the point of the user click action
       markers.features.forEach((marker) => {
         const { geometry } = marker;
         const { coordinates } = geometry;
@@ -153,13 +154,14 @@ export default function App() {
         if (lat_calc_difference < min_difference_lat || min_difference_lat === 0) {
           min_difference_lat = lat_calc_difference;
           
-          var closestMarker = findClosestLng( marker_lat, min_difference_lng, target_lng).geometry;
+          var closestMarker = findClosestLng(marker_lat, min_difference_lng, target_lng).geometry;
           var closestMarkerCoordinates = closestMarker.coordinates;
 
           closest_marker_coordinates = [closestMarkerCoordinates[0], closestMarkerCoordinates[1]];
         }
       });
 
+      // Using this code to get total count of the coordinates
       var count = 0;
       markers.features.forEach((marker) => {
         const { geometry } = marker;
@@ -184,6 +186,7 @@ export default function App() {
   };
 
   const createNewMarkers = (closest_marker_coordinates, number_of_coordinates) => {
+    // using this code to create new markers
     var spiderifier_markers = [];
 
     for (var index = 1; index < number_of_coordinates + 1; index++) {
@@ -203,6 +206,7 @@ export default function App() {
   };
 
   const findClosestLng = (targetLat, min_difference_lng, target_lng) => {
+    // Using this function to get the closest lng coordinate using the targetLat
     const markersWithTargetLat = markers.features.filter((marker) => marker.geometry.coordinates[0] === targetLat);
     var closestMarker = undefined;
 
